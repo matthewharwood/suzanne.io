@@ -8,97 +8,48 @@
  * Controller of the suzanneioApp
  */
 var app = angular.module('suzanneioApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.experiences = [
-    	{
-    		timeframe: '2011 – Present',
-    		job: 'Marketing and Call Center / Dispatch Manager',
-    		location: 'Mediastream – Waycross, Georgia',
-    		list: [
-    			{detail:'Design and implement multimedia marketing campaigns working with marketing and sales team.'},
-    			{detail:'Call Center operations management including national Dispatch.'},
-    			{detail:'Supervise the interviewing, hiring and training of employees and the planning, assigning and directing of tasks and responsibilities.'},
-				{detail:'Develop and implement internal communications and training programs.'},
-				{detail:'Work with management team to develop budget.'},
-				{detail:'Evaluate financial reports to target areas of opportunity and growth.'}
-
-    		]
-    	},
-    	{
-    		timeframe: '2011 – Present',
-    		job: 'Marketing and Call Center / Dispatch Manager',
-    		location: 'Mediastream – Waycross, Georgia',
-    		list: [
-    			{detail:'Design and implement multimedia marketing campaigns working with marketing and sales team.'},
-    			{detail:'Call Center operations management including national Dispatch.'},
-    			{detail:'Supervise the interviewing, hiring and training of employees and the planning, assigning and directing of tasks and responsibilities.'},
-				{detail:'Develop and implement internal communications and training programs.'},
-				{detail:'Work with management team to develop budget.'},
-				{detail:'Evaluate financial reports to target areas of opportunity and growth.'}
-
-    		]
-    	},
-    	{
-    		timeframe: '2011 – Present',
-    		job: 'Marketing and Call Center / Dispatch Manager',
-    		location: 'Mediastream – Waycross, Georgia',
-    		list: [
-    			{detail:'Design and implement multimedia marketing campaigns working with marketing and sales team.'},
-    			{detail:'Call Center operations management including national Dispatch.'},
-    			{detail:'Supervise the interviewing, hiring and training of employees and the planning, assigning and directing of tasks and responsibilities.'},
-				{detail:'Develop and implement internal communications and training programs.'},
-				{detail:'Work with management team to develop budget.'},
-				{detail:'Evaluate financial reports to target areas of opportunity and growth.'}
-
-    		]
-    	},
-    	{
-    		timeframe: '2011 – Present',
-    		job: 'Marketing and Call Center / Dispatch Manager',
-    		location: 'Mediastream – Waycross, Georgia',
-    		list: [
-    			{detail:'Design and implement multimedia marketing campaigns working with marketing and sales team.'},
-    			{detail:'Call Center operations management including national Dispatch.'},
-    			{detail:'Supervise the interviewing, hiring and training of employees and the planning, assigning and directing of tasks and responsibilities.'},
-				{detail:'Develop and implement internal communications and training programs.'},
-				{detail:'Work with management team to develop budget.'},
-				{detail:'Evaluate financial reports to target areas of opportunity and growth.'}
-
-    		]
-    	}
-
-    ];
-    // 
-    $scope.wtf = function(evt) {
-    	console.log('asdfasdf', evt);	
-    	// element.scrollTop()
-    };
+  .controller('MainCtrl', function ($scope, UI, Suzanne) {
+    $scope.experiences = Suzanne.exp;
+    $scope.memberships = Suzanne.memberships;
+    $scope.awards = Suzanne.awards;
+    $scope.isMenuOpen = UI.menu.status;
+    $scope.$watch(
+            function () { return UI.menu.status;},
+            function (newVal) { 
+                $scope.isMenuOpen = newVal;
+            }
+      );
     
   });
-app.factory('Experiences', function(){
-	var Experiences = {};
-	Experiences.status = [];
-	return Experiences;
+app.factory('UI', function(){
+	var UI = {};
+
+	UI.status = [];
+    UI.menu = {
+        status: false,
+    };
+
+	return UI;
 });
-app.directive('scrollSpyer', function ($window, Experiences) {
+app.directive('scrollSpyer', function ($window, UI) {
     return {
     	controller: function($scope){
-    		$scope.experiences = [];
+    		$scope.ui = [];
     		this.expMapper = function(offset, height) {
-    			$scope.experiences.push({'offset': offset, 'height': height, 'inView': false});
+    			$scope.ui.push({'offset': offset, 'height': height, 'inView': false});
     		};
     	},
     	link: function(scope) {
     		var i = 0;
 	        angular.element($window).bind('scroll', function() {
 	        	
-	        	if(i < scope.experiences.length){
+	        	if(i < scope.ui.length){
 	        		console.log(this.pageYOffset);
-        			if (this.pageYOffset >= scope.experiences[i].offset) {
+        			if (this.pageYOffset >= scope.ui[i].offset) {
                  		scope.boolChangeClass = true;
-                 		Experiences.status.push(scope.experiences[i].inView=true);
-                 		console.log('boolif', scope.experiences[i].offset);
-                 		console.log('Experiences.status', Experiences.status);
+                 		UI.status.push(scope.ui[i].inView=true);
+                 		console.log('boolif', scope.ui[i].offset);
+                 		console.log('UI.status', UI.status);
                  		i++;
 		            } else {
 		            	console.log('middle');
@@ -123,7 +74,7 @@ app.directive('spyed', function ($timeout) {
     			var offset = el[0].getBoundingClientRect().top;
 			var theHeight = el[0].offsetHeight;
 			ctrl.expMapper(offset, theHeight);	
-    		},1000)
+    		},1000);
 			
     		
 	    }

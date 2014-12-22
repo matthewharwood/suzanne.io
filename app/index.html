@@ -61,8 +61,31 @@
 
     </script>
     <!-- Add your site or application content here -->
-    <!-- <nav><h1>asdf</h1></nav> -->
-    <main ng-view class="container"></main>
+    <div ng-controller="MenuCtrl" class="main-menu-outer">
+    <nav class="main-menu" 
+         
+         ng-mouseover="menuHover()"
+         ng-class="{'hovered': isMenuHovered}">
+        <div class="menu-animator" ng-class="{'on': isMenuOpen, 'hovered': isMenuHovered}">
+        </div>
+        <ul>
+            <li ng-click="toggleMenu()" class="hamburger" ng-class="{'on': isMenuOpen}">
+                <p class="menu-item" ng-switch="isMenuOpen"> 
+                    <span ng-switch-when="false"></span>
+                    <span ng-switch-when="true" class="close-btn">&times; close</span>
+                    <span ng-switch-default></span>
+                </p>
+            </li>
+        </ul>
+    </nav>
+    <div class="main-menu-content">
+        <h1 ng-show="isMenuOpen" class="menu-overlay-item">
+            <span class="menu-overlay-item-title">Resumé</span> 
+            <span class="menu-overlay-icon-next">&rsaquo;</span>
+        </h1>
+    </div>
+    </div>
+    <main ng-view ></main>
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -100,6 +123,9 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/menu.js"></script>
+
+        <script src="scripts/factories/suzanne.js"></script>
         <!-- endbuild -->
 </body>
 </html>

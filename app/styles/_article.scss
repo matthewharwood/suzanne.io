@@ -1,0 +1,112 @@
+#resume {
+    * {
+       text-shadow: 0px 0px 0px transparent;
+    }
+    -webkit-transition: color 0.3s ease-out 0.55s, text-shadow 0.3s ease-out; 
+    transition: color 0.3s ease-out 0.55s, text-shadow 0.3s ease-out;
+    &.on * {
+      color: transparent;
+      text-shadow: 0px 0px 20px #f7f7f7 ;
+      -webkit-transition: color 0.3s ease-in, 0.55s, text-shadow 0.3s ease-out; 
+      transition: color 0.3s ease-in, 0.55s, text-shadow 0.3s ease-out; 
+    }
+    
+    //removes dash lines
+    &.on .exp-location:before{
+      background: transparent;
+    }
+}
+.resume-hero {
+  width: 100%;
+  height: 90%;
+  position: fixed;
+  top: 0;
+  video {
+    width: 100%;
+  }
+}
+
+//copy below
+.skills-list {
+  p {
+    font-style: italic;
+  }
+}
+
+$push-exp: em(36, 16);
+$line-width: em(32, 16);
+$line-width-s: em($type-s, 16);
+$line-width-xlg: em($type-xla, 16);
+//experience
+.push-lists {
+  margin-left: $push-exp;
+}
+.exp-list {
+  padding-bottom: $line-width-xlg;
+  @include breakpoint($xxl){
+    &:before {
+      position: absolute;
+      top: 1.25em;
+      left: -.5em;
+      width: 0.25em;
+      height: .25em;
+      border: 2px solid #ccc;
+      border-radius: 1em;
+      content: " ";
+
+    }
+    &:after {
+      position: absolute;
+      left: -.25em;
+      top: 2.1em;
+      width: 1px;
+      bottom: -1em;
+      border-left: 1px solid #ddd;
+      content: " ";
+
+    }
+    &:last-child {
+      &:after {
+        border-left: 1px dashed #ddd;
+        bottom: 3em;
+      }
+    }
+  }
+  @include breakpoint($xxxl){
+    &:before {
+      left: -1.38em;
+    }
+    &:after {
+      left: -1.15em;
+    }
+  }
+}
+
+.exp-location{
+  @extend .push-lists;
+  padding: $line-width-s 0;
+
+  &:before {
+    position: absolute;
+    content: " ";
+    left: -($push-exp);
+    top: 50%;
+    margin-top: -1px;
+    width: ($line-width);
+    height: 1px;
+    background: $black;
+  }
+}
+
+.exp-description {
+  @extend .push-lists;
+  .exp-description-item {
+    margin-bottom: 1em;
+    @include breakpoint($xs) {
+      font-size: em($type-xs, 16);
+    }
+    @include breakpoint($m) {
+      font-size: em($type-s, 16);
+    }
+  }
+}

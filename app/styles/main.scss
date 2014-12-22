@@ -6,6 +6,8 @@
 @import "_helpers";
 @import "_grid";
 @import "_typography";
+@import "_menu";
+@import "_article";
 
 .browsehappy {
   margin: 0.2em 0;
@@ -18,49 +20,3 @@ li{
 }
 /* Space out content a bit */
 
-.skills-list {
-	p {
-		font-style: italic;
-	}
-}
-
-$push-exp: em(36, 16);
-$line-width: em(32, 16);
-$line-width-s: em($type-s, 16);
-$line-width-xlg: em($type-xla, 16);
-//experience
-.push-lists {
-	margin-left: $push-exp;
-}
-.exp-list {
-	margin-bottom: $line-width-xlg;
-}
-
-.exp-location{
-	@extend .push-lists;
-	padding: $line-width-s 0;
-
-	&:before {
-		position: absolute;
-		content: " ";
-		left: -($push-exp);
-		top: 50%;
-		margin-top: -1px;
-		width: ($line-width);
-		height: 1px;
-		background: $black;
-	}
-}
-
-.exp-description {
-	@extend .push-lists;
-	.exp-description-item {
-		margin-bottom: 1em;
-		@include breakpoint($xs) {
-			font-size: em($type-xs, 16);
-		}
-		@include breakpoint($m) {
-			font-size: em($type-s, 16);
-		}
-	}
-}

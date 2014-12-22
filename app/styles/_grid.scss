@@ -18,16 +18,24 @@ $xxxxl:    "1400px";
 $xxxxxl:   "1700px";
 $xxxxxxl:  "2000px";
 
+.container-offset {
+	margin: 90% auto;
+	padding: 8% 0;
+	width: 100%;
+	background-color: #fff;
+}
 
 .container {
 	width: 95%;
 	margin: 0 auto;
 	max-width: 1100px;
+	
 	@include breakpoint($xs){
 		width: 95%;
 	}
 	@include breakpoint($l){
 		width: $fifth-4;
+		padding-right: 8%;
 	}
 	
 }

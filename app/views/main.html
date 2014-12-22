@@ -1,116 +1,180 @@
-<article >
-  <section itemscope itemtype="http://schema.org/Person" class="person row">
-    <ul class="inner-person">
+<article id="resume" ng-class="{'on': isMenuOpen}">
+  <header class="resume-hero">
+    <video controls poster="images/poster-suzanne.jpeg">
+      <source src="movie.mp4" type="video/mp4">
+      <source src="movie.ogg" type="video/ogg">
+  
+    </video>
+  </header>
+  <div class="container-offset">
+    <div class="container">
+    <section itemscope itemtype="http://schema.org/Person" class="person row" >
+      <ul class="inner-person">
 
-      <li class="person-item">
-        <h1 class="person-item-name" ng-click="wtf($event)">
-          <span itemprop="name">
-            <span itemprop="givenName">Suzanne</span>
-            <span itemprop="additionalName">
-              <abbr title="Bernadette">B.</abbr>
+        <li class="person-item">
+          <h1 class="person-item-name" >
+            <span itemprop="name">
+              <span itemprop="givenName">Suzanne</span>
+              <span itemprop="additionalName">
+                <abbr title="Bernadette">B.</abbr>
+              </span>
+              <span itemprop="familyName">Harwood</span>
             </span>
-            <span itemprop="familyName">Harwood</span>
-          </span>
-        </h1>
-        <!-- <figure>
-          <img itemprop="image" src="images/suzanne-harwood-logo.jpg" alt="A logo of Suzanne Harwood">
-        </figure> -->
-      </li>
+          </h1>
+          <!-- <figure>
+            <img itemprop="image" src="images/suzanne-harwood-logo.jpg" alt="A logo of Suzanne Harwood">
+          </figure> -->
+        </li>
 
-      <!-- <li class="person-item">
-        <h2 class="person-item-birthday">
-          <span itemprop="birthDate">12/19/1959</span>
-        </h2>
-      </li> -->
+        <!-- <li class="person-item">
+          <h2 class="person-item-birthday">
+            <span itemprop="birthDate">12/19/1959</span>
+          </h2>
+        </li> -->
 
-      <li class="person-item">
-        <h2 class="person-item-url">
-          <a href="http://suzanne.io" itemprop="url">http://suzanne.io</a>
-        </h2>
-      </li>
+        <li class="person-item">
+          <h2 class="person-item-url">
+            <a href="http://suzanne.io" itemprop="url">http://suzanne.io</a>
+          </h2>
+        </li>
 
-      <li class="person-item">
+        <li class="person-item">
 
-        <h2 class="person-item-telephone">
-          <span itemprop="telephone">
-            <a href="tel:+19125480128">912.548.0128</a>
-          </span>
-        </h2>
-
-        <h2 class="person-item-telephone">
+          <h2 class="person-item-telephone">
             <span itemprop="telephone">
-              <a href="tel:+19122823057">912.282.3057</a>
+              <a href="tel:+19125480128">912.548.0128</a>
             </span>
-        </h2>
-      </li>
+          </h2>
 
-      <li class="person-item">
+          <h2 class="person-item-telephone">
+              <span itemprop="telephone">
+                <a href="tel:+19122823057">912.282.3057</a>
+              </span>
+          </h2>
+        </li>
 
-          <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="person-item-address">
-            <h2>
-              <span itemprop="streetAddress">91100 St Catherine Waycross</span>
-              <span itemprop="addressRegion">, GA</span>
-              <span itemprop="postalCode">31501</span>
-            </h2>
-          </address>
+        <li class="person-item">
 
-      </li>
+            <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="person-item-address">
+              <h2>
+                <span itemprop="streetAddress">91100 St Catherine Waycross</span>
+                <span itemprop="addressRegion">, GA</span>
+                <span itemprop="postalCode">31501</span>
+              </h2>
+            </address>
 
-    </ul>
-  </section>
+        </li>
 
-  <!-- //****************
+      </ul>
+    </section>
+
+    <!-- //****************
 
 
-   SKILLS SUMMARY 
+     SKILLS SUMMARY 
 
-  **********************// -->
-  <section class="row">
-    <dl class="skills-summary">
-      <dt class="col-left">
-        <h3>Skills Summary:</h3>
-      </dt>
-      <dt class="col-right">
-        <ul class="skills-list">
-          <li><p>Skills Summary Marketing and Sales Campaign Management</p></li>
-          <li><p>Team Management</p></li>
-          <li><p>Call Center Operations / Dispatch Management</p></li>
-          <li><p>Customer Service Measurement and Training Programs</p></li>
-          <li><p>Budgeting and Forecasting</p></li>
-        </ul>
-      </dt>
-    </dl>
-  </section>
+    **********************// -->
+    <section class="row">
+      <dl class="skills-summary">
+        <dt class="col-left">
+          <h3>Skills Summary:</h3>
+        </dt>
+        <dt class="col-right">
+          <ul class="skills-list">
+            <li><p>Skills Summary Marketing and Sales Campaign Management</p></li>
+            <li><p>Team Management</p></li>
+            <li><p>Call Center Operations / Dispatch Management</p></li>
+            <li><p>Customer Service Measurement and Training Programs</p></li>
+            <li><p>Budgeting and Forecasting</p></li>
+          </ul>
+        </dt>
+      </dl>
+    </section>
 
-   <!-- //****************
+     <!-- //****************
 
-   EXPERICENCE
+     EXPERICENCE
 
-  **********************// -->
+    **********************// -->
 
-  <section class="row">
-    <dl class="exp-summary">
-      <dt class="col-left">
-        <h3>Experience:</h3>
-      </dt>
-      <dt class="col-right exp-list" 
-          spyed
-          ng-repeat="exp in experiences"
-          ng-class="{
-            'push-right': !$first,
+    <section class="row">
+      <dl class="exp-summary">
+        <dt class="col-left">
+          <h3>Experience:</h3>
+        </dt>
+        <dt class="col-right exp-list" 
+            spyed
+            ng-repeat="exp in experiences"
+            ng-class="{
+              'push-right': !$first,
+              
+            }">
+
+          <h4 class="exp-timeframe" >{{exp.timeframe}}</h4>
+          <h5 class="exp-job">{{exp.job}}</h5>
+          <h6 class="exp-location">{{exp.location}}</h6>
+          <ul class="exp-description">
+            <li class="exp-description-item" 
+                ng-repeat="item in exp.list">
+                <p>{{item.detail}}</p>
+            </li>
+          </ul>
+        </dt>
+      </dl>
+    </section>
+     <!-- //****************
+
+     Memberships
+
+    **********************// -->
+    <section class="row">
+      <dl class="skills-summary">
+        <dt class="col-left">
+          <h3>Memberships:</h3>
+        </dt>
+        <dt class="col-right">
+          <ul class="skills-list">
+            <li ng-repeat="item in memberships"><p>{{item}}</p></li>
             
-          }">
+          </ul>
+        </dt>
+      </dl>
+    </section>
+    <!-- //****************
 
-        <h4 class="exp-timeframe" >{{exp.timeframe}}</h4>
-        <h5 class="exp-job">{{exp.job}}</h5>
-        <h6 class="exp-location">{{exp.location}}</h6>
-        <ul class="exp-description">
-          <li class="exp-description-item" 
-              ng-repeat="item in exp.list">
-              <p>{{item.detail}}</p>
-          </li>
-        </ul>
-      </dt>
-    </dl>
-  </section>
+     Awards
+
+    **********************// -->
+    <section class="row">
+      <dl class="skills-summary">
+        <dt class="col-left">
+          <h3>Awards:</h3>
+        </dt>
+        <dt class="col-right">
+          <ul class="skills-list">
+            <li ng-repeat="item in awards"><p>{{item}}</p></li>
+          </ul>
+        </dt>
+      </dl>
+    </section>
+
+    <!-- //****************
+
+     References
+
+    **********************// -->
+    <section class="row">
+      <dl class="skills-summary">
+        <dt class="col-left">
+          <h3>References:</h3>
+        </dt>
+        <dt class="col-right">
+          <ul class="skills-list">
+            <li ><p>References upon request</p></li>
+          </ul>
+        </dt>
+      </dl>
+    </section>
+    </div>
+  </div>
 </article>
