@@ -1,0 +1,139 @@
+$default-browser: 16;
+$type-xxs: 10;
+$type-xs: 13;
+$type-xsa: 18;
+
+$type-s: 16;
+$type-sa: 24;
+
+$type-m: 26;
+$type-ma: 36;
+
+$type-l: 42;
+$type-la: 48;
+
+$type-xl: 68;
+$type-xla: 72;
+
+$type-xxl: 110;
+$type-xxla: 120;
+
+@font-face {
+    font-family: 'tabacg2-bolduploaded_file';
+    src: url('tabacg2-bold-webfont.eot');
+    src: url('tabacg2-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('tabacg2-bold-webfont.woff2') format('woff'),
+         url('tabacg2-bold-webfont.woff') format('woff'),
+         url('tabacg2-bold-webfont.ttf') format('truetype'),
+         url('tabacg2-bold-webfont.svg#tabacg2-bolduploaded_file') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1 {
+	font-family: "tabacg2-bolduploaded_file";
+	color: $black;
+	line-height: em($type-xsa, $default-browser);
+	@include breakpoint($xxs){
+		font-size: em($type-m, $default-browser);
+	}
+
+	@include breakpoint($xs){
+		font-size: em($type-ma, $default-browser);
+	}
+	
+	@include breakpoint($s){
+		font-size: em($type-l, $default-browser);
+	}
+
+	@include breakpoint($m){
+		font-size: em($type-l, $default-browser);
+	}
+
+	@include breakpoint($l){
+		font-size: em($type-la, $default-browser);
+	}
+
+	@include breakpoint($xl){
+		font-size: em($type-xl, $default-browser);
+	}
+
+	@include breakpoint($xxl){
+		font-size: em($type-xla, $default-browser);
+	}
+	
+}
+
+h2 {
+	
+	color: $black;
+	font-weight: 400;
+	line-height: em($type-m, $default-browser);
+	@include breakpoint($xs){
+		font-size: em($type-xxs, $default-browser);		
+	}
+
+	@include breakpoint($s){
+		font-size: em($type-xs, $default-browser);
+	}
+}
+
+h3 {
+	font-size: em($type-m, $default-browser);
+	line-height: em($type-xsa, $default-browser);
+	color: $black;
+	text-transform: uppercase;
+	font-weight: 700;
+	@include breakpoint($xxs){
+		font-size: em($type-m, $default-browser);
+	}
+
+	@include breakpoint($xs){
+		font-size: em($type-sa, $default-browser);
+	}
+	
+	@include breakpoint($s){
+		font-size: em($type-sa, $default-browser);
+	}
+
+	@include breakpoint($m){
+		font-size: em($type-sa, $default-browser);
+	}
+
+	@include breakpoint($l){
+		font-size: em($type-sa, $default-browser);
+	}
+
+	@include breakpoint($xl){
+		font-size: em($type-sa, $default-browser);
+	}
+
+	@include breakpoint($xxl){
+		font-size: em($type-sa, $default-browser);
+	}
+}
+
+h4 {
+	font-size: em($type-s, $default-browser);
+	line-height: em($type-sa, $default-browser);
+	color: $off-black;
+	font-weight: 400;
+	font-style: italic;
+}
+
+h5 {
+	font-size: em($type-s, $default-browser);
+	line-height: em($type-sa, $default-browser);
+	color: $emphasis;
+	font-style: italic;
+	font-weight: 400;
+}
+
+h6 {
+	font-size: em($type-s, $default-browser);
+	line-height: em($type-sa, $default-browser);
+	color: $black;
+	text-transform: uppercase;
+	font-weight: 700;
+}

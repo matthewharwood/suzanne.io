@@ -1,0 +1,59 @@
+$fifth-1: 20%;
+$fifth-2: 40%;
+$fifth-3: 60%;
+$fifth-4: 80%;
+$full: 100%;
+$gutter-size: 8;
+$margin-size: 36;
+
+$xxs:      "max-width 317px";
+$xs:       "318px";
+$s:        "478px";
+$m:        "560px";
+$l:        "780px";
+$xl:       "960px";
+$xxl:      "1100px";
+$xxxl:     "1200px";
+$xxxxl:    "1400px";
+$xxxxxl:   "1700px";
+$xxxxxxl:  "2000px";
+
+
+.container {
+	width: $fifth-4;
+	margin: 0 auto;
+}
+
+.row {
+	width: $full;
+	@extend .group;
+	margin-bottom: em($margin-size, 16);
+}
+
+.col-left {
+	float: left;
+	padding-right: 8px;
+
+	@include breakpoint($xs){
+		width: 100%;
+	}
+	
+	@include breakpoint($l){
+		width: $fifth-1;
+
+	}
+}
+
+.col-right {
+	float: left;
+	padding-left: em($gutter-size, 16);
+
+	@include breakpoint($xs) {
+		width: 100%;
+	}
+
+	@include breakpoint($l){
+		width: $fifth-4;
+		
+	}
+}

@@ -1,0 +1,26 @@
+// bower:scss
+// endbower
+
+@import "breakpoint";
+@import "_global";
+@import "_helpers";
+@import "_grid";
+@import "_typography";
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+.person-item{
+	@extend .clear-list;
+}
+.skills-list > li{
+	@extend .clear-list;
+	p {
+		font-style: italic;
+	}
+}

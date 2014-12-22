@@ -1,0 +1,9 @@
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.clear-list {
+	list-style-type: none;
+}

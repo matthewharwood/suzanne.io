@@ -1,0 +1,195 @@
+
+@-ms-viewport {width: device-width;}
+    @viewport {width: device-width;}
+
+//
+// Normalization & resets for annoyances
+
+@import "_normalize";
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video,
+main {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1em;
+  font-family: inherit;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input, textarea, button, select {
+  margin: 0;
+  font-size: 1em;
+  line-height: inherit;
+  vertical-align: baseline;
+  font-family: inherit;
+}
+
+textarea { resize: vertical; }
+
+//
+// Em conversion functions
+// pixels to ems & baselines to ems
+
+$font-size: 16;
+$line-height: 24;
+
+@function em($pixels, $context-font-size: $font-size) {
+ @return ($pixels / $context-font-size) * 1em;
+}
+
+@function lines($lines, $context-font-size: $font-size,  $context-line-height: $line-height) {
+  @return $lines * ($context-line-height / $context-font-size) * 1em;
+}
+
+@function rem($factor, $context-font-size: $font-size) {
+ @return ($factor * $context-font-size) / $context-font-size * 1em;
+}
+
+//
+// Variables
+
+$max-width: lines(40);
+
+//
+// Typography
+
+@mixin text-font      { font-family: 'Noto Sans', sans-serif; }
+@mixin heading-font  	{ font-family: 'Noto Sans', sans-serif; }
+@mixin monospace-font { font-family: Menlo, Consolas, monospace; }
+
+//
+// Colors
+
+$hue-main: 15;
+
+// quarters
+$hue-25: $hue-main + (360 * 0.25);
+$hue-50: $hue-main + (360 * 0.5);
+$hue-75: $hue-main + (360 * 0.75);
+
+// golden ratio ^n 1.612
+$hue-1: $hue-main + (360 * 0.979);
+$hue-2: $hue-main + (360 * 0.965);
+$hue-3: $hue-main + (360 * 0.944);
+$hue-4: $hue-main + (360 * 0.910);
+$hue-5: $hue-main + (360 * 0.854);
+$hue-6: $hue-main + (360 * 0.764);
+$hue-7: $hue-main + (360 * 0.618);
+$hue-8: $hue-main + (360 * 0.382);
+$hue-9: $hue-main + (360 * 0.236);
+$hue-10: $hue-main + (360 * 0.146);
+$hue-11: $hue-main + (360 * 0.090);
+$hue-12: $hue-main + (360 * 0.056);
+$hue-13: $hue-main + (360 * 0.034);
+$hue-14: $hue-main + (360 * 0.021);
+
+
+$cyan-50:   #E0F7FA;
+$cyan-100:  #B2EBF2;
+$cyan-200:  #80DEEA;
+$cyan-300:  #4DD0E1;
+$cyan-400:  #26C6DA;
+$cyan-500:  #00BCD4;
+$cyan-600:  #00ACC1;
+$cyan-700:  #0097A7;
+$cyan-800:  #00838F;
+$cyan-900:  #006064;
+$cyan-A100: #84FFFF;
+$cyan-A200: #18FFFF;
+$cyan-A400: #00E5FF;
+$cyan-A700: #00B8D4;
+$white: #fff;
+$off-white: #f7f7f7;
+$black: #333;
+$off-black: #555;
+
+//site color rhythm
+$background: $white;
+$highlight:  $cyan-A700;
+$border:     $off-white;
+$aside:      $cyan-900;
+$body:       $off-black;
+$emphasis:   $cyan-700;
+$link:       $cyan-700;
+
+// @for $i from 1 through 14{
+//   .hue#{$i} {
+//      hsl($hue-#{$i}, 50%, 50%);    
+//   }
+// }
+//
+// Media queries
+
+
+
+//
+// Basic styles
+
+html {
+  background: $background;
+}
+
+body {
+  @include text-font;
+  font-size: em($font-size, 16);
+  line-height: $line-height/$font-size;
+  color: $body;
+  -webkit-tap-highlight-color: transparentize($link, 0.5);
+  margin: 0 auto;
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $emphasis;
+  }
+
+  &:active {
+    color: $aside;
+  }
+}
+
+h1, h2, h3, h4, h5, h6,
+strong, b {
+  @include heading-font;
+  color: $emphasis;
+}
+
+code {
+  @include monospace-font;
+}
+
+::selection      { background: $link; color: $emphasis; }
+-moz-::selection { background: $link; color: $emphasis; }
+
+figure {
+  position: relative;
+}
+figure img, figure object, figure embed, figure video {
+  max-width: 100%;
+  display: block;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
