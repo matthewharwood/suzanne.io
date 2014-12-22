@@ -1,9 +1,9 @@
-<article class="row">
-  <section itemscope itemtype="http://schema.org/Person" class="person">
+<article >
+  <section itemscope itemtype="http://schema.org/Person" class="person row">
     <ul class="inner-person">
 
       <li class="person-item">
-        <h1 class="person-item-name" >
+        <h1 class="person-item-name" ng-click="wtf($event)">
           <span itemprop="name">
             <span itemprop="givenName">Suzanne</span>
             <span itemprop="additionalName">
@@ -72,11 +72,11 @@
       </dt>
       <dt class="col-right">
         <ul class="skills-list">
-          <li><p>skills summary marking and sales compaign mangement</p></li>
-          <li><p>skills summary marking and sales compaign mangement</p></li>
-          <li><p>skills summary marking and sales compaign mangement</p></li>
-          <li><p>skills summary marking and sales compaign mangement</p></li>
-          <li><p>skills summary marking and sales compaign mangement</p></li>
+          <li><p>Skills Summary Marketing and Sales Campaign Management</p></li>
+          <li><p>Team Management</p></li>
+          <li><p>Call Center Operations / Dispatch Management</p></li>
+          <li><p>Customer Service Measurement and Training Programs</p></li>
+          <li><p>Budgeting and Forecasting</p></li>
         </ul>
       </dt>
     </dl>
@@ -93,16 +93,22 @@
       <dt class="col-left">
         <h3>Experience:</h3>
       </dt>
-      <dt class="col-right">
-        <h4 class="exp-timeframe">2011 - present</h4>
-        <h5 class="exp-job">Marketing and Call Center / Dispatch Manager</h5>
-        <h6 class="exp-location">Mediastream- waycross, georgia</h6>
-        <ul class="exp-list">
-          <li><p>skills summary marking and sales compaign mangement</p></li>
-          <li><p>skills summary marking and sales compaign mangement</p></li>
-          <li><p>skills summary marking and sales compaign mangement</p></li>
-          <li><p>skills summary marking and sales compaign mangement</p></li>
-          <li><p>skills summary marking and sales compaign mangement</p></li>
+      <dt class="col-right exp-list" 
+          spyed
+          ng-repeat="exp in experiences"
+          ng-class="{
+            'push-right': !$first,
+            
+          }">
+
+        <h4 class="exp-timeframe" >{{exp.timeframe}}</h4>
+        <h5 class="exp-job">{{exp.job}}</h5>
+        <h6 class="exp-location">{{exp.location}}</h6>
+        <ul class="exp-description">
+          <li class="exp-description-item" 
+              ng-repeat="item in exp.list">
+              <p>{{item.detail}}</p>
+          </li>
         </ul>
       </dt>
     </dl>

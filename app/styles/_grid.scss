@@ -20,14 +20,23 @@ $xxxxxxl:  "2000px";
 
 
 .container {
-	width: $fifth-4;
+	width: 95%;
 	margin: 0 auto;
+	max-width: 1100px;
+	@include breakpoint($xs){
+		width: 95%;
+	}
+	@include breakpoint($l){
+		width: $fifth-4;
+	}
+	
 }
 
 .row {
 	width: $full;
 	@extend .group;
-	margin-bottom: em($margin-size, 16);
+	margin-bottom: em(72, 16);
+
 }
 
 .col-left {
@@ -57,3 +66,13 @@ $xxxxxxl:  "2000px";
 		
 	}
 }
+.push-right {
+	@include breakpoint($xs) {
+		margin-left: 0;
+	}
+	@include breakpoint($l){
+		margin-left: $fifth-1;
+		
+	}
+}
+
