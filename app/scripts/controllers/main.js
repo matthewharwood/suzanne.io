@@ -143,3 +143,4 @@ app.directive('inlineEdit', function() {
           }
         };
   });
+//http://stackoverflow.com/questions/27596385/how-to-get-correct-height-and-offset-values-of-an-element-when-using-ng-repeat
